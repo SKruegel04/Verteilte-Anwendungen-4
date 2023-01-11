@@ -10,16 +10,38 @@ Mögliche Punktzahl: 20 Punkte
 - 2. Zug 2. Gruppe: 07.02.2023 
 
 ## Aufgabestellung
-In dieser Aufgabe erhalten Sie nicht nur eine vorkonfigurietes Project sondern auch ein 
-ein existierendes Docker Compose File. Dieses Docker Compose File fährt  ereits alle nötogen Kompomneen für sie hoch.
-Um sich eien Überblick über die getserteten Serer Instanzen zu machen empfielt es sich ein Blick au f die docker-compose zu werfen.
+In dieser Aufgabe erhalten Sie kein vollständig vorkonfigurietes Project; 
+dafür jedoch ein existierendes Docker Compose File. 
+Dieses Docker Compose File fährt bereits alle benötigten Komponenten für Sie hoch.
+Um sich eien Überblick über die Server-Instanzen zu verschaffen, empfielt es sich einen Blick in die [docker-compose.yml](docker-compose.yml) zu werfen.
 
-In dieser Aufgabe wollen wir Elon Mask zum Zittern bringen in dem wir mittels Kafka Twitter zum Tweeten brigen.
-In dieser Augabe solen zwei kern bereiche ifosudnfi
+> Mit dieser Aufgabe wollen wir Elon Mask zum Zittern bringen in dem wir mittels
+Kafka ihre Applikation zum Twittern bringen.
 
-1.  **(4P)** Schreiben Sie ein Dockerfile mit dem Sie das [offizielle Image des NGINX von Docker Hub](https://hub.docker.com/_/nginx) erweitern. Erstellen Sie eine individuelle HTML Seite, die die Matrikelnummern der Gruppenteilnehmer darstellt und die Namen der Gruppenmitglieder als Meta Tag „author“ ausliefert. Starten Sie einen Container mit ihrem eigenen Image mittels ``$ docker run -d -p 8080:80 verteilte-anwendungen-nginx`` und stellen Sie sicher, dass die erstellte HTML Datei unter [http://localhost:8080/verteilte-anwendungen/test.html](http://localhost:8080/verteilte-anwendungen/test.html) von dem Container richtig ausgeliefert wird.
-2.  **(4P)** Bauen Sie mit Hilfe von Maven die Quarkus Applikation sowie das entsprechende Docker Image. Starten sie einen Container mit der Quarkus Applikation und testen Sie die RESTful Webservices mit Hilfe eines REST Clients (z.B. curl oder Insomnia).
-3.  **(4P)** Schreiben Sie ein Docker Compose file mit dem Sie das angepasste Image aus dem ersten Schritt starten. Der gestartete Container soll über Port 8181 erreichbar sein und die Konfiguration aus einer lokalen Datei des Host Systems (somit nicht im Image enthalten) lesen.
+Genaugenommen können Sie bereits auf Tweets zugreifen und die neusten 
+Posts Ihrer Kommelitonen lesen. Nach dem Start finden Sie ein 
+VA Twitter Channel unter [http://localhost:8081](http://localhost:8081)
+Leider sind diese Infromationen nur generiert und auch nur lokal 
+auf einer Instanz verfügbar. 
+Die Herausforderung dieser Augabe besteht darin, die Tweets nach Kafka zu schreiben bzw. aus Kafka zu lesen und somit auf allen Instanzen ihrer Applikation 
+darzustellen.
+
+1.  **(4P)** Konfigurieren Sie ein Kafka Topic namens "twitter".
+Dieses Topic muss mindestens **zwei** Partitionen besitzen!
+Entscheiden Sie sich für eine geeignete Retention und begründen Sie Ihre
+Entscheidung bei der Projektabgabe.
+Konfigurieren Sie das von Ihnen erzeugte Topic in der
+[application.properties](src/main/resources/application.properties).
+2.  **(4P)** Konfigurenen Sie Bauen Sie mit Hilfe von Maven die Quarkus Applikation sowie das entsprechende Docker Image. Starten sie einen Container mit der Quarkus Applikation und testen Sie die RESTful Webservices mit Hilfe eines REST Clients (z.B. curl oder Insomnia).
+
+Sie haben isandiaos
+
+3.  **(4P)** Konfigurieren Sie ein Kafka Topic namens "fibonacci".
+Dieses Topic muss mindestens **zwei** Partitionen besitzen!
+Entscheiden Sie sich für eine geeignete Retention und begründen Sie Ihre
+Entscheidung bei der Projektabgabe.
+Konfigurieren Sie das von Ihnen erzeugte Topic in der
+[application.properties](src/main/resources/application.properties).
 4.  **(8P)** Erweitern sie die Quarkus Applikation, um einen weiteren REST Endpunkt. Dieser soll unter dem Pfad `/aufgaben/1/` eine Ressource namens „zahl“ vom Media Type ``application/example`` bereitstellen. Der REST Endpunkt soll vier Methoden unterstützen: 1. Initiales Anlegen einer Zahl, 2. Abrufen der aktuellen Zahl, 3. Aktualisieren einer Zahl und 4. Löschen einer Zahl. 
 
 
