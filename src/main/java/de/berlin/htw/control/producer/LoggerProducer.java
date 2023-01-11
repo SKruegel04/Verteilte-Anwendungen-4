@@ -16,4 +16,5 @@ public class LoggerProducer {
     public Logger createLogger(final InjectionPoint ip) {
         return Logger.getLogger(ip.getMember().getDeclaringClass());
     }
+
 }

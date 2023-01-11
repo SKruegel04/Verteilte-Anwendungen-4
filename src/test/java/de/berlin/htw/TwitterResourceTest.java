@@ -9,7 +9,7 @@ import static io.restassured.RestAssured.given;
 class TwitterResourceTest {
 
     @Test
-    void testHelloEndpoint() {
+    void testTweets() {
         given()
             .when()
             .log().all()
