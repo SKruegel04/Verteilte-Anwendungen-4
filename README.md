@@ -26,9 +26,9 @@ VA Twitter Channel unter [http://localhost:8081](http://localhost:8081)
 zugreifen zu können.
 Leider sind diese Informationen nur generiert und auch nur lokal 
 auf einer Instanz verfügbar.
-Das Ziel dieser Aufgabe ist Bereitstellung der Tweets auf zwei Instanzen.
-Die Herausforderung dieser Aufgabe besteht somit darin, die Tweets nach Kafka zu schreiben bzw. aus Kafka zu lesen und somit auf allen Instanzen ihrer Applikation 
-darzustellen.
+Das Ziel dieser Aufgabe ist die Bereitstellung der Tweets auf zwei Instanzen.
+Die Herausforderung besteht somit darin, die Tweets nach Kafka zu schreiben bzw. aus Kafka zu lesen und somit auf allen Instanzen ihrer Applikation 
+gleichermaßen darzustellen.
 
 1.  **(4P)** Konfigurieren Sie ein Kafka Topic namens "twitter".
 Dieses Topic muss mindestens **zwei** Partitionen besitzen!
@@ -36,14 +36,15 @@ Entscheiden Sie sich für eine geeignete Retention und begründen Sie Ihre
 Entscheidung bei der Projektabgabe.
 Konfigurieren Sie das von Ihnen erzeugte Topic in der
 [application.properties](src/main/resources/application.properties).
-2.  **(6P)** Implementieren Sie die Consumer und Producer Funktionalität.
+2.  **(6P)** Implementieren Sie die Consumer und Producer Funktionalität
+für das Erzeugen und Verarbeiten von Tweets.
 Da es sich hierbei um eine Schnittstelle ihrer Applikation handelt,
 sollten sich auch die entsprechenden Klassen im 
 [Boundary Package](src/main/java/de/berlin/htw/boundary)
 befinden.
 
 Mit den ersten beiden Aufgaben haben Sie ein Publish/Subscribe Pattern
-implementiert, bei dem mehrere Consumer alle Nachrichten
+implementiert, bei dem mehrere Consumer sämtliche Nachrichten
 empfangen und verarbeiten. Ein weiteres Anwendungsgebiet ist das 
 sogenannte Job Processing,
 bei dem Kafka als Job Queue eingesetzt werden kann. Mit den folgenden Aufgaben
@@ -56,11 +57,12 @@ Reihenfolge der Fibonacci Tuple im Stream entscheidend ist!
 
 3.  **(4P)** Konfigurieren Sie ein Kafka Topic namens "fibonacci".
 Entscheiden Sie sich für eine geeignete Retention, eine sinnvolle
-Anzahl an Partitionen und die maximal mögliche Anzahl an Replikationen.
+Anzahl an Partitionen und wählen Sie die maximal mögliche Anzahl an Replikationen.
 Begründen Sie Ihre Entscheidung bei der Projektabgabe.
-Vervollständigen Sie die Konfigurieren entsprechend dem erzeugten Topic in der
+Vervollständigen Sie die Konfiguration entsprechend dem erzeugten Topic in der
 [application.properties](src/main/resources/application.properties).
-4.  **(6P)** Implementieren Sie die Consumer und Producer Funktionalität. 
+4.  **(6P)** Implementieren Sie die Consumer und Producer Funktionalität zur
+endlosen Berechnung der Fibonacci-Folge. 
 
 Weitere Informationen zur Implementierung von Kafka in 
 Quarkus finden sie auf der Quarkus Webseite: 
@@ -93,7 +95,7 @@ werden kann, wurden zwei Profile konfiguriert:
 - secondary
 
 Wenn sie mehr über die Profil-Konfiguration wissen wollen,
-dann besuchen Sie bitte die Quarkus Website:
+dann besuchen Sie bitte die Quarkus Webseite:
 [Configuration Reference Guide](https://quarkus.io/guides/config-reference) .
 
 ## Running the application in dev mode
