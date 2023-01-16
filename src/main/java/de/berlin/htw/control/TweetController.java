@@ -5,7 +5,7 @@ import javax.inject.Inject;
 
 import org.jboss.logging.Logger;
 
-import de.berlin.htw.boundary.TwitterConsumer;
+import de.berlin.htw.boundary.TwitterProducer;
 import io.quarkus.scheduler.Scheduled;
 
 /**
@@ -21,7 +21,7 @@ public class TweetController {
 	TweetGenerator generator;
 	
 	@Inject
-	TwitterConsumer toBeChangedProducer;
+	TwitterProducer producer;
 	
     public String getTweet() {
         final String tweet = generator.generateTweet();
@@ -33,7 +33,7 @@ public class TweetController {
     void produceTweet() {
         final String tweet = this.getTweet();
         // TODO: send the tweet to kafka
-        toBeChangedProducer.add(tweet);
+        producer.sendMessage(tweet);
     }
 
 }
