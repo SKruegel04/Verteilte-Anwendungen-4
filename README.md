@@ -4,10 +4,8 @@ Mögliche Punktzahl: 20 Punkte
 
 ## Deadlines
 
-- 1. Zug 1. Gruppe: 06.02.2023
-- 1. Zug 2. Gruppe: 09.02.2023
-- 2. Zug 1. Gruppe: 07.02.2023
-- 2. Zug 2. Gruppe: 07.02.2023 
+- 1. Zug: 13.7.2023
+- 2. Zug: 11.7.2023 
 
 ## Aufgabestellung
 In dieser Aufgabe erhalten Sie kein vollständig vorkonfiguriertes Project; 
