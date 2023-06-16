@@ -31,5 +31,5 @@ services:
     ports:
       - "8080:8080"
     environment:
-      KAFKA_CLUSTERS_0_NAME: va-lab3
+      KAFKA_CLUSTERS_0_NAME: va-lab4
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9093
