@@ -4,10 +4,10 @@ Mögliche Punktzahl: 20 Punkte
 
 ## Deadlines
 
-- 1. Zug: 13.7.2023
-- 2. Zug: 11.7.2023 
+- 1. Zug: 25.1.2024
+- 2. Zug: 23.1.2024 
 
-## Aufgabestellung
+## Aufgabenstellung
 In dieser Aufgabe erhalten Sie kein vollständig vorkonfiguriertes Project; 
 dafür jedoch ein existierendes Docker Compose File. 
 Dieses Docker Compose File fährt bereits alle benötigten Komponenten für Sie hoch.
@@ -101,11 +101,11 @@ dann besuchen Sie bitte die Quarkus Webseite:
 Sie können die primäre Instanz Ihrer Applikation mit dem folgenden Kommando
 im dev Mode starten:
 ```shell script
-$mvn compile quarkus:dev -Dquarkus.profile=primary
+$ mvn compile quarkus:dev -Dquarkus.profile=primary
 ```
 Und die sekundäre Instanz Ihrer Applikation mit:
 ```shell script
-$mvn compile quarkus:dev -Dquarkus.profile=secondary
+$ mvn compile quarkus:dev -Dquarkus.profile=secondary
 ```
 
 > **_Achtung:_**  Quarkus wird im dev Mode mit einer Dev UI ausgeliefert,
@@ -116,11 +116,11 @@ http://localhost:8082/q/dev/ erreichen können.
 
 The application can be packaged using:
 ```shell script
-$mvn package
+$ mvn package
 ```
 It produces the `verteilte-anwendungen-kafka-1.0.0-SNAPSHOT-runner.jar` file in the `target/` directory.
 
 The primary application instance is now runnable using 
-`$java  -Dquarkus.profile=primary -jar target/verteilte-anwendungen-kafka-1.0.0-SNAPSHOT-runner.jar`
+`$ java  -Dquarkus.profile=primary -jar target/verteilte-anwendungen-kafka-1.0.0-SNAPSHOT-runner.jar`
 and the secondary by using
-`$java  -Dquarkus.profile=secondary -jar target/verteilte-anwendungen-kafka-1.0.0-SNAPSHOT-runner.jar`.
+`$ java  -Dquarkus.profile=secondary -jar target/verteilte-anwendungen-kafka-1.0.0-SNAPSHOT-runner.jar`.
