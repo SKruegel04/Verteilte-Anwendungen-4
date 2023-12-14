@@ -1,14 +1,14 @@
 package de.berlin.htw.control;
 
-import javax.enterprise.context.Dependent;
-import javax.inject.Inject;
+import jakarta.enterprise.context.Dependent;
+import jakarta.inject.Inject;
 
 import org.jboss.logging.Logger;
 
 import de.berlin.htw.boundary.dto.FibonacciTuple;
 
 /**
- * @author Alexander Stanik [stanik@htw-berlin.de]
+ * @author Alexander Stanik [alexander.stanik@htw-berlin.de]
  */
 @Dependent
 public class FibonacciController {

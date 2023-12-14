@@ -1,6 +1,6 @@
 package de.berlin.htw.boundary;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.jboss.logging.Logger;
@@ -8,7 +8,7 @@ import org.jboss.logging.Logger;
 import io.smallrye.reactive.messaging.kafka.Record;
 
 /**
- * @author Alexander Stanik [stanik@htw-berlin.de]
+ * @author Alexander Stanik [alexander.stanik@htw-berlin.de]
  */
 public class FibonacciConsumer {
 
