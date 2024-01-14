@@ -1,10 +1,13 @@
 package de.berlin.htw.boundary;
 
+import io.smallrye.reactive.messaging.kafka.Record;
 import jakarta.enterprise.event.Event;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 
 import de.berlin.htw.boundary.dto.Tweet;
+import org.eclipse.microprofile.reactive.messaging.Channel;
+import org.eclipse.microprofile.reactive.messaging.Emitter;
 
 /**
  * @author Alexander Stanik [alexander.stanik@htw-berlin.de]
@@ -13,20 +16,11 @@ import de.berlin.htw.boundary.dto.Tweet;
 public class TwitterProducer {
 
     @Inject
-    private Event<Tweet> twitterChannel;
+    @Channel("twitter-producer")
+    Emitter<String> producer;
 
     public void sendMessage(final String message) {
-        final Tweet tweet = new Tweet();
-        tweet.setMessage(message);
-        sendTweet(tweet);
-    }
-    
-    public void sendTweet(final Tweet tweet) {
-        twitterChannel.fire(tweet);
-    }
-    
-    public void sendTweetAsync(final Tweet tweet) {
-        twitterChannel.fireAsync(tweet);
+        producer.send(message);
     }
     
 }

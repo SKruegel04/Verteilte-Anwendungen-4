@@ -39,11 +39,7 @@ public class TwitterResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<String> getTweets() {
-        List<String> tweets = new ArrayList<>();
-        for (int i = 0; i < historySize; i++) {
-            tweets.add(controller.getTweet());
-        }
-        return tweets;
+        return consumer.getLastTweets();
     }
 
     @GET
