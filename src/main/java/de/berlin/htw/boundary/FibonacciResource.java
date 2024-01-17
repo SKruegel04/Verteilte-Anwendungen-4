@@ -1,8 +1,8 @@
 package de.berlin.htw.boundary;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import io.smallrye.reactive.messaging.kafka.Record;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -26,19 +26,19 @@ public class FibonacciResource {
 
 	@Inject
 	FibonacciController controller;
+
+    @Inject
+    FibonacciProducer producer;
+
+    @Inject
+    FibonacciConsumer consumer;
 	
     @GET
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public List<Integer> getFibonacciSequence(FibonacciTuple current) {
-    	List<Integer> sequence = new ArrayList<>();
-        sequence.add(current.getLast());
-        sequence.add(current.getCurrent());
-    	for (int i = 2; i < sequenceSize; i++) {
-    	    current = controller.calculateNext(current);
-    	    sequence.add(current.getCurrent());
-        }
-        return sequence;
+        producer.produce(Record.of(current.getKey(), current.getCurrent().toString()));
+        return consumer.getLastValues(sequenceSize);
     }
 
 }

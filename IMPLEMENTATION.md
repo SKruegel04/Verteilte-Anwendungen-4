@@ -118,3 +118,27 @@
   ```
 - http://localhost:8081/ aufrufen, nach 10 Sekunden sollten neue Tweets erscheinen
 - http://localhost:8082/ aufrufen, nach 10 Sekunden sollten neue Tweets erscheinen
+
+# Aufgabe 3
+
+- Kafka Topic namens "fibonacci" anlegen
+- Retention: 3 Tage, da Daten der Fibonacci-Folge nicht historisch relevant sind, und eine ständige Aktualisierung zu erwarten ist
+- Partitionen: 3 Partitionen, bessere Parallelität und besserer Durchsat, kann bei endloser Berechnung der Fibonacci-Folge hilfreich sein kann
+
+- Kafka UI unter http://localhost:8080/ aufrufen
+- Links zu "Topics" und dann "Add a topic" anklicken
+  - Topic Name: fibonacci
+  - Number of Partitions: 3
+    - Bessere Parallelität und besserer Durchsatz, kann bei endloser Berechnung der Fibonacci-Folge hilfreich sein
+  - Time to retain data (in ms): 259200000 (3 Tage, da Daten der Fibonacci-Folge nicht historisch relevant sind, und eine ständige Aktualisierung zu erwarten ist)
+    - Daten der Fibonacci-Folge nicht historisch relevant, ständige Aktualisierung zu erwarten
+  - "Create Topic" anklicken
+
+# Aufgabe 4
+
+- Implementierten Code in FibonacciProducer und FibonacciConsumer anschauen
+- Implementierten Code in FibonacciController und FibonacciResource anschauen
+- Aufgabe sehr schwierig zu verstehen
+  - Kommunikation ist Asynchon
+  - Unit Tests erwarten synchrone Antwort
+  - Stimmt der Unit Test nicht?
