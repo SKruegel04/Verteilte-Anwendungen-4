@@ -33,13 +33,11 @@ public class FibonacciConsumer {
     @Incoming("fibonacci-consumer")
     public void consume(Record<Integer, String> record) {
         logger.info("Received from fibonacci topic: " + record.value());
-        FibonacciTuple tuple = new FibonacciTuple();
-        tuple.setLast(record.key());
-        tuple.setCurrent(Integer.parseInt(record.value()));
+        FibonacciTuple tuple = FibonacciTuple.fromRecord(record);
         sequence.put(tuple.getKey(), tuple.getCurrent());
 
         FibonacciTuple nextTuple = controller.calculateNext(tuple);
-        producer.produce(Record.of(nextTuple.getKey(), nextTuple.getCurrent().toString()));
+        producer.produce(nextTuple.toRecord());
     }
 
     public List<Integer> getLastValues(Integer count) {

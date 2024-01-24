@@ -3,7 +3,7 @@
 - Dienste starten mit
   
   ```bash
-  docker-compose up
+  docker compose up
   ```
   
   > **Hinweis (Windows 11):**
